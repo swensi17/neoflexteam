@@ -153,7 +153,9 @@
         color: #fff !important;
       }
       .aw-card__art,
-      .aw-card__art img {
+      .aw-card__art img,
+      .aw-card__photo,
+      .aw-card__photo img {
         -webkit-user-select: none;
         user-select: none;
       }
@@ -719,7 +721,7 @@
         }
       }
 
-      /* —— Why neoflex — blue feature cards (reference style) —— */
+      /* —— Team neoflex: 1 rect + 2 squares —— */
       .aw-section {
         position: relative;
         width: 100%;
@@ -799,27 +801,33 @@
         gap: 1.25rem;
         align-items: stretch;
       }
-      @media (min-width: 720px) {
-        .aw-cols { grid-template-columns: 1fr 1fr; gap: 1.35rem; }
+      /* Team: 1 portrait rectangle + 2 neat squares in a row */
+      .aw-cols--team {
+        grid-template-columns: 1fr;
       }
-      @media (min-width: 1100px) {
-        .aw-cols {
-          grid-template-columns: repeat(4, minmax(0, 1fr));
+      @media (min-width: 900px) {
+        .aw-cols--team {
+          grid-template-columns: 1.25fr 1fr 1fr;
+          grid-template-rows: auto;
           gap: 1.25rem;
+          min-height: 0;
+          align-items: start;
+        }
+        .aw-cols--team .aw-card--rect {
+          grid-row: auto;
         }
       }
       .aw-card {
         position: relative;
         display: flex;
         flex-direction: column;
-        gap: 1.05rem;
-        padding: 1.45rem 1.3rem 1.2rem;
+        gap: 0.9rem;
+        padding: 0.85rem;
         border-radius: 28px;
         box-sizing: border-box;
-        min-height: 520px;
+        min-height: 0;
         overflow: hidden;
         color: var(--fg);
-        /* liquid glass like top bar — bubbly, not blue */
         background: var(--hero-nav-bg);
         backdrop-filter: blur(16px) saturate(1.15);
         -webkit-backdrop-filter: blur(16px) saturate(1.15);
@@ -828,6 +836,21 @@
           inset 0 1px 0 color-mix(in srgb, var(--fg) 14%, transparent),
           0 12px 36px rgba(0, 0, 0, 0.16);
         transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+      }
+      .aw-card--square {
+        aspect-ratio: 1 / 1;
+      }
+      .aw-card--rect {
+        aspect-ratio: 3 / 4;
+        min-height: 0;
+      }
+      @media (min-width: 900px) {
+        .aw-card--rect,
+        .aw-card--square {
+          width: 100%;
+          height: auto;
+          min-height: 0;
+        }
       }
       .aw-card::before {
         content: '';
@@ -871,71 +894,72 @@
           inset 0 1px 0 color-mix(in srgb, var(--fg) 18%, transparent),
           0 18px 44px rgba(0, 0, 0, 0.22);
       }
-      .aw-card--art-top {
-        justify-content: flex-start;
+      .aw-card__photo {
+        width: 100%;
+        flex: 1 1 auto;
+        min-height: 180px;
+        border-radius: 22px;
+        overflow: hidden;
+        background: #0a0a0a;
+        -webkit-user-select: none;
+        user-select: none;
       }
-      .aw-card--art-bottom {
-        justify-content: flex-start;
+      .aw-card--square .aw-card__photo {
+        flex: 1 1 58%;
+        min-height: 0;
+      }
+      .aw-card--rect .aw-card__photo {
+        flex: 1 1 68%;
+        min-height: 260px;
+      }
+      .aw-card__photo img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center top;
+        display: block;
+        pointer-events: none;
+        -webkit-user-drag: none;
       }
       .aw-card__copy {
         display: flex;
         flex-direction: column;
-        gap: 0.55rem;
+        gap: 0.28rem;
+        padding: 0.35rem 0.45rem 0.55rem;
+        position: relative;
       }
-      .aw-card--art-top .aw-card__copy {
-        margin-top: auto;
-      }
-      .aw-card--art-top .aw-card__title {
-        order: 2;
-      }
-      .aw-card--art-top .aw-card__text {
-        order: 1;
+      .aw-card__role {
+        margin: 0;
+        font-size: 0.72rem;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--muted);
       }
       .aw-card__title {
         margin: 0;
-        font-size: clamp(1.45rem, 1.8vw, 1.75rem);
+        font-size: clamp(1.35rem, 1.7vw, 1.7rem);
         font-weight: 750;
         letter-spacing: -0.035em;
         line-height: 1.15;
         color: var(--fg);
       }
       .aw-card__text {
-        margin: 0;
-        font-size: 0.92rem;
-        line-height: 1.45;
+        margin: 0.15rem 0 0;
+        font-size: 0.88rem;
+        line-height: 1.4;
         color: var(--muted);
-        max-width: 28ch;
+        max-width: 34ch;
       }
-      .aw-card__actions {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 0.75rem;
-        margin: 0.15rem 0;
-      }
-      .aw-card__btn {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        padding: 0.55rem 1.05rem;
-        border-radius: 999px;
-        border: 1.5px solid color-mix(in srgb, var(--fg) 40%, transparent);
-        color: var(--fg);
-        text-decoration: none;
-        font-size: 0.82rem;
-        font-weight: 600;
-        letter-spacing: -0.01em;
-        background: color-mix(in srgb, var(--fg) 4%, transparent);
+      .aw-card--square .aw-card__text {
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
         overflow: hidden;
-        transition: border-color 0.25s ease, background 0.25s ease;
-      }
-      .aw-card__btn:hover {
-        /* no fill monolith — only orbit arc */
-        background: color-mix(in srgb, var(--fg) 6%, transparent);
-        border-color: transparent;
-        color: var(--fg);
       }
       .aw-card__go {
+        position: absolute;
+        right: 0.35rem;
+        bottom: 0.35rem;
         width: 40px;
         height: 40px;
         display: inline-flex;
@@ -960,69 +984,18 @@
       .aw-card__go:hover svg {
         transform: rotate(90deg);
       }
-      .aw-card__art {
-        width: 100%;
-        aspect-ratio: 1 / 1;
-        max-height: 240px;
-        margin-top: auto;
-        border-radius: 22px;
-        background: transparent;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        overflow: hidden;
-        -webkit-user-select: none;
-        user-select: none;
-      }
-      .aw-card--art-top .aw-card__art {
-        margin-top: 0;
-        margin-bottom: 0.15rem;
-      }
-      .aw-card__art img {
-        width: 100%;
-        height: 100%;
-        object-fit: contain;
-        display: block;
-        pointer-events: none;
-        -webkit-user-drag: none;
-        background: transparent !important;
-        filter: drop-shadow(0 10px 20px rgba(10, 10, 10, 0.14));
-      }
-      /* AI Systems + Delivery (art-bottom): robot a bit larger */
-      .aw-card--art-bottom .aw-card__art {
-        max-height: 260px;
-      }
-      .aw-card--art-bottom .aw-card__art img {
-        transform: scale(1.14);
-        transform-origin: center center;
-      }
-      html.dark .aw-card__art img {
-        filter: drop-shadow(0 12px 24px rgba(0, 0, 0, 0.35));
-      }
-      .aw-card__dots {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 0.4rem;
-        margin-top: 0.35rem;
-        padding-top: 0.15rem;
-      }
-      .aw-card__dot {
-        width: 7px;
-        height: 7px;
-        border-radius: 50%;
-        border: 1.5px solid color-mix(in srgb, var(--fg) 35%, transparent);
-        background: transparent;
-        box-sizing: border-box;
-      }
-      .aw-card__dot.is-on {
-        background: var(--fg);
-        border-color: var(--fg);
-      }
-      @media (max-width: 719px) {
-        .aw-card { min-height: 460px; }
-        .aw-card__art { max-height: 220px; }
-        .aw-card--art-bottom .aw-card__art { max-height: 235px; }
+      @media (max-width: 899px) {
+        .aw-card--rect {
+          aspect-ratio: 3 / 4;
+          max-width: 420px;
+          width: 100%;
+          margin: 0 auto;
+        }
+        .aw-card--square {
+          max-width: 420px;
+          width: 100%;
+          margin: 0 auto;
+        }
       }
     </style>
 
@@ -1038,7 +1011,7 @@
 }
 </script>
   <script type="module" crossorigin src="/neoflexteam/assets/index-Digf9FMO.js?v=paypal-big3"></script>
-  <script src="/neoflexteam/js/about-section.js?v=orbit-all1" defer></script>
+  <script src="/neoflexteam/js/about-section.js?v=team3" defer></script>
   </head>
   <body>
     <div id="root"></div>

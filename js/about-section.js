@@ -1,71 +1,89 @@
 /**
- * #about-work — Feature cards (fintech-style blue panels).
+ * #about-work — Team cards (1 rectangle + 2 squares).
  */
 (function () {
   "use strict";
 
   var MARK = "data-neoflex-about";
-  var VER = "25";
-  var ILL = "/neoflexteam/illustrations/color/";
+  var VER = "team3";
+  var PHOTO = "/neoflexteam/img/team/";
   var sectionEl = null;
   var lastLang = "";
 
   var I18N = {
     en: {
       num: "[ 01 / 09 ]",
-      enTag: "PRODUCTS",
-      label: "PRODUCTS & CAPABILITIES",
-      title: "Why neoflex?",
-      c1Title: "AI Systems",
-      c1Text:
-        "Full cycle from research to production: agents, automation, web and studio decks.",
-      c2Title: "AI Agents",
-      c2Text: "Assistants for ops, CRM and support with Telegram and API integrations.",
-      c3Title: "Delivery",
-      c3Text: "Stress-tested launches: clear stack, timeline and handoff to your team.",
-      c4Title: "AI Presentations",
-      c4Text: "Studio decks and pitch materials that look sharp and explain clearly.",
-      more: "Read More",
+      enTag: "TEAM",
+      label: "OUR TEAM",
+      title: "Meet neoflex",
+      asadName: "Asad",
+      asadRole: "Fullstack developer",
+      asadText: "Built products at Yandex. Full cycle: web, API, bots and shipping.",
+      sardorName: "Sardor",
+      sardorRole: "Frontend developer",
+      sardorText: "Interfaces, motion and clean UI that feel fast on every device.",
+      shamsName: "Shams",
+      shamsRole: "HR",
+      shamsText: "People, hiring and keeping the team sharp.",
     },
     ru: {
       num: "[ 01 / 09 ]",
-      enTag: "PRODUCTS",
-      label: "ПРОДУКТЫ И ВОЗМОЖНОСТИ",
-      title: "Почему neoflex?",
-      c1Title: "AI-системы",
-      c1Text:
-        "Полный цикл от исследования до продакшена: агенты, автоматизация, веб и студия.",
-      c2Title: "AI-агенты",
-      c2Text: "Ассистенты для операций, CRM и поддержки. Telegram и API.",
-      c3Title: "Поставка",
-      c3Text: "Проверенные запуски: понятный стек, сроки и передача команде.",
-      c4Title: "AI-презентации",
-      c4Text: "Студийные деки и питчи, которые ясно объясняют продукт.",
-      more: "Подробнее",
+      enTag: "TEAM",
+      label: "НАША КОМАНДА",
+      title: "Команда neoflex",
+      asadName: "Asad",
+      asadRole: "Fullstack-разработчик",
+      asadText: "Работал в Яндексе. Полный цикл: веб, API, боты и выкладка в прод.",
+      sardorName: "Sardor",
+      sardorRole: "Frontend-разработчик",
+      sardorText: "Интерфейсы, анимация и чистый UI, который быстро работает везде.",
+      shamsName: "Shams",
+      shamsRole: "HR",
+      shamsText: "Люди, найм и сильная команда.",
     },
     uz: {
       num: "[ 01 / 09 ]",
-      enTag: "PRODUCTS",
-      label: "MAHSULOTLAR VA IMKONIYATLAR",
-      title: "Nega neoflex?",
-      c1Title: "AI-tizimlar",
-      c1Text: "Tadqiqotdan prodgacha: agentlar, avtomatlashtirish, web va studiya.",
-      c2Title: "AI agentlar",
-      c2Text: "Ops, CRM va support uchun yordamchilar. Telegram va API.",
-      c3Title: "Yetkazish",
-      c3Text: "Aniq stack, muddat va jamoaga topshirish.",
-      c4Title: "AI taqdimotlar",
-      c4Text: "Studiya decklari va pitch materiallari — aniq va chiroyli.",
-      more: "Batafsil",
+      enTag: "TEAM",
+      label: "JAMOAMIZ",
+      title: "neoflex jamoasi",
+      asadName: "Asad",
+      asadRole: "Fullstack dasturchi",
+      asadText: "Yandexda ishlagan. To'liq sikl: web, API, botlar va prod.",
+      sardorName: "Sardor",
+      sardorRole: "Frontend dasturchi",
+      sardorText: "Interfeys, animatsiya va tez ishlaydigan toza UI.",
+      shamsName: "Shams",
+      shamsRole: "HR",
+      shamsText: "Odamlar, hiring va kuchli jamoa.",
     },
   };
 
-  // layout: "art-bottom" | "art-top" like the reference
+  // Asad = tall rectangle; Sardor + Shams = squares
   var CARDS = [
-    { title: "c1Title", text: "c1Text", img: "01.webp", href: "#services", layout: "art-bottom" },
-    { title: "c2Title", text: "c2Text", img: "02.webp", href: "#services", layout: "art-top" },
-    { title: "c3Title", text: "c3Text", img: "03.webp", href: "#process", layout: "art-bottom" },
-    { title: "c4Title", text: "c4Text", img: "04.webp", href: "https://t.me/Ashf555", layout: "art-top" },
+    {
+      shape: "rect",
+      name: "asadName",
+      role: "asadRole",
+      text: "asadText",
+      img: "asad.png",
+      href: "https://t.me/Ashf555",
+    },
+    {
+      shape: "square",
+      name: "sardorName",
+      role: "sardorRole",
+      text: "sardorText",
+      img: "sardor.png",
+      href: "https://t.me/Ashf555",
+    },
+    {
+      shape: "square",
+      name: "shamsName",
+      role: "shamsRole",
+      text: "shamsText",
+      img: "shams.png",
+      href: "https://t.me/Ashf555",
+    },
   ];
 
   function getLang() {
@@ -77,45 +95,37 @@
     return I18N[getLang()];
   }
 
-  function actionsHtml(href) {
+  function cardHtml(c) {
     return (
-      '<div class="aw-card__actions">' +
-      '  <a class="aw-card__btn" href="' +
-      href +
-      '" data-i18n="more"></a>' +
-      '  <a class="aw-card__go" href="' +
-      href +
-      '" aria-label="more">' +
-      '    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">' +
-      '      <path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>' +
-      "    </svg>" +
-      "  </a>" +
-      "</div>"
-    );
-  }
-
-  function textHtml(c) {
-    return (
-      '<div class="aw-card__copy">' +
-      '  <h3 class="aw-card__title" data-i18n="' +
-      c.title +
+      '<article class="aw-card aw-card--' +
+      c.shape +
+      '">' +
+      '  <div class="aw-card__photo">' +
+      '    <img src="' +
+      PHOTO +
+      c.img +
+      "?v=team3" +
+      '" alt="" draggable="false" />' +
+      "  </div>" +
+      '  <div class="aw-card__copy">' +
+      '    <p class="aw-card__role" data-i18n="' +
+      c.role +
+      '"></p>' +
+      '    <h3 class="aw-card__title" data-i18n="' +
+      c.name +
       '"></h3>' +
-      '  <p class="aw-card__text" data-i18n="' +
+      '    <p class="aw-card__text" data-i18n="' +
       c.text +
       '"></p>' +
-      "</div>"
-    );
-  }
-
-  function artHtml(c) {
-    return (
-      '<div class="aw-card__art">' +
-      '  <img src="' +
-      ILL +
-      c.img +
-      "?v=robo1" +
-      '" alt="" draggable="false" />' +
-      "</div>"
+      '    <a class="aw-card__go" href="' +
+      c.href +
+      '" target="_blank" rel="noopener noreferrer" aria-label="Telegram">' +
+      '      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">' +
+      '        <path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>' +
+      "      </svg>" +
+      "    </a>" +
+      "  </div>" +
+      "</article>"
     );
   }
 
@@ -125,21 +135,6 @@
     section.className = "aw-section";
     section.setAttribute(MARK, "1");
     section.setAttribute("data-aw-ver", VER);
-
-    var cardsHtml = CARDS.map(function (c, idx) {
-      var inner =
-        c.layout === "art-top"
-          ? artHtml(c) + actionsHtml(c.href) + textHtml(c)
-          : textHtml(c) + actionsHtml(c.href) + artHtml(c);
-
-      return (
-        '<article class="aw-card aw-card--' +
-        c.layout +
-        '">' +
-        inner +
-        "</article>"
-      );
-    }).join("");
 
     section.innerHTML =
       '<div class="aw-inner">' +
@@ -155,8 +150,8 @@
       '    <span class="aw-big--head" aria-hidden="true">01</span>' +
       "  </header>" +
       '  <div class="aw-rule" aria-hidden="true"></div>' +
-      '  <div class="aw-cols">' +
-      cardsHtml +
+      '  <div class="aw-cols aw-cols--team">' +
+      CARDS.map(cardHtml).join("") +
       "  </div>" +
       "</div>";
     return section;
