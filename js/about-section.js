@@ -5,7 +5,7 @@
   "use strict";
 
   var MARK = "data-neoflex-about";
-  var VER = "team4";
+  var VER = "team5";
   var PHOTO = "/neoflexteam/img/team/";
   var sectionEl = null;
   var lastLang = "";
@@ -23,7 +23,7 @@
       sardorRole: "Frontend developer",
       sardorText: "Interfaces, motion and clean UI that feel fast on every device.",
       shamsName: "Shams",
-      shamsRole: "HR",
+      shamsRole: "AI-specialists",
       shamsText: "People, hiring and keeping the team sharp.",
     },
     ru: {
@@ -38,7 +38,7 @@
       sardorRole: "Frontend-разработчик",
       sardorText: "Интерфейсы, анимация и чистый UI, который быстро работает везде.",
       shamsName: "Shams",
-      shamsRole: "HR",
+      shamsRole: "AI-specialists",
       shamsText: "Люди, найм и сильная команда.",
     },
     uz: {
@@ -53,7 +53,7 @@
       sardorRole: "Frontend dasturchi",
       sardorText: "Interfeys, animatsiya va tez ishlaydigan toza UI.",
       shamsName: "Shams",
-      shamsRole: "HR",
+      shamsRole: "AI-specialists",
       shamsText: "Odamlar, hiring va kuchli jamoa.",
     },
   };
@@ -104,7 +104,7 @@
       '    <img src="' +
       PHOTO +
       c.img +
-      "?v=team4" +
+      "?v=team5" +
       '" alt="" draggable="false" />' +
       "  </div>" +
       '  <div class="aw-card__copy">' +
