@@ -1,5 +1,5 @@
-# NEOFLEX team
+# неофлекс team
 
-Сайт команды NEOFLEX (копия актуальной сборки, бренд neoflex заменён на neoflex).
+Сайт команды неофлекс.
 
 GitHub Pages: https://swensi17.github.io/neoflexteam/

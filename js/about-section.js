@@ -15,7 +15,7 @@
       num: "[ 01 / 09 ]",
       enTag: "PRODUCTS",
       label: "PRODUCTS & CAPABILITIES",
-      title: "Why NEOFLEX?",
+      title: "Why неофлекс?",
       c1Title: "AI Systems",
       c1Text:
         "Full cycle from research to production: agents, automation, web and studio decks.",
@@ -31,7 +31,7 @@
       num: "[ 01 / 09 ]",
       enTag: "PRODUCTS",
       label: "ПРОДУКТЫ И ВОЗМОЖНОСТИ",
-      title: "Почему NEOFLEX?",
+      title: "Почему неофлекс?",
       c1Title: "AI-системы",
       c1Text:
         "Полный цикл от исследования до продакшена: агенты, автоматизация, веб и студия.",
@@ -47,7 +47,7 @@
       num: "[ 01 / 09 ]",
       enTag: "PRODUCTS",
       label: "MAHSULOTLAR VA IMKONIYATLAR",
-      title: "Nega NEOFLEX?",
+      title: "Nega неофлекс?",
       c1Title: "AI-tizimlar",
       c1Text: "Tadqiqotdan prodgacha: agentlar, avtomatlashtirish, web va studiya.",
       c2Title: "AI agentlar",
