@@ -5,7 +5,7 @@
   "use strict";
 
   var MARK = "data-neoflex-about";
-  var VER = "team6";
+  var VER = "team7";
   var PHOTO = "/neoflexteam/img/team/";
   var sectionEl = null;
   var lastLang = "";
@@ -104,7 +104,7 @@
       '    <img src="' +
       PHOTO +
       c.img +
-      "?v=team6" +
+      "?v=team7" +
       '" alt="" draggable="false" />' +
       "  </div>" +
       '  <div class="aw-card__copy">' +
@@ -149,7 +149,6 @@
       "    </div>" +
       '    <span class="aw-big--head" aria-hidden="true">01</span>' +
       "  </header>" +
-      '  <div class="aw-rule" aria-hidden="true"></div>' +
       '  <div class="aw-cols aw-cols--team">' +
       CARDS.map(cardHtml).join("") +
       "  </div>" +

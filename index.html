@@ -790,10 +790,7 @@
         pointer-events: none;
       }
       .aw-rule {
-        width: 100%;
-        height: 1px;
-        background: var(--line);
-        margin: 0.15rem 0 0.5rem;
+        display: none !important;
       }
       .aw-cols {
         display: grid;
@@ -818,8 +815,8 @@
         position: relative;
         display: flex;
         flex-direction: column;
-        gap: 0.55rem;
-        padding: 0.65rem;
+        gap: 0;
+        padding: 0;
         border-radius: 0;
         box-sizing: border-box;
         width: 100%;
@@ -905,17 +902,19 @@
         width: 100%;
         height: 100%;
         object-fit: cover;
-        object-position: center 22%;
+        object-position: center 30%;
         display: block;
         pointer-events: none;
         -webkit-user-drag: none;
       }
       /* face framing per person */
       .aw-card__photo img[src*="asad"] {
-        object-position: center 18%;
+        object-position: center 42%;
+        transform: scale(1.08);
+        transform-origin: center 35%;
       }
       .aw-card__photo img[src*="sardor"] {
-        object-position: center 28%;
+        object-position: center 32%;
       }
       .aw-card__photo img[src*="shams"] {
         object-position: center center;
@@ -924,14 +923,16 @@
         display: flex;
         flex-direction: column;
         gap: 0.2rem;
-        padding: 0.2rem 0.3rem 0.35rem;
+        padding: 0.65rem 0.75rem 0.7rem;
         padding-right: 2.6rem;
         position: relative;
-        flex: 0 0 5.75rem;
-        height: 5.75rem;
-        max-height: 5.75rem;
+        flex: 0 0 5.9rem;
+        height: 5.9rem;
+        max-height: 5.9rem;
         overflow: hidden;
         box-sizing: border-box;
+        background: rgba(0, 0, 0, 0.92);
+        border-top: none;
       }
       .aw-card__role {
         margin: 0;
@@ -1013,7 +1014,7 @@
 }
 </script>
   <script type="module" crossorigin src="/neoflexteam/assets/index-Digf9FMO.js?v=paypal-big3"></script>
-  <script src="/neoflexteam/js/about-section.js?v=team6" defer></script>
+  <script src="/neoflexteam/js/about-section.js?v=team7" defer></script>
   </head>
   <body>
     <div id="root"></div>
