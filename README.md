@@ -1,5 +1,5 @@
-# неофлекс team
+# neoflex team
 
-Сайт команды неофлекс.
+Сайт команды neoflex.
 
 GitHub Pages: https://swensi17.github.io/neoflexteam/

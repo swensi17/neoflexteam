@@ -1,5 +1,5 @@
 /**
- * неофлекс hero — performance WebGL waves. Brand: #050505 + #fffce1 (monochrome).
+ * neoflex hero — performance WebGL waves. Brand: #050505 + #fffce1 (monochrome).
  * Caps FPS ~28, aggressive pixel budget, pauses offscreen / tab hidden.
  * Mounts only on #neoflex-hero-shader.
  */
