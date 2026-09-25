@@ -65,7 +65,7 @@
     { title: "c1Title", text: "c1Text", img: "01.webp", href: "#services", layout: "art-bottom" },
     { title: "c2Title", text: "c2Text", img: "02.webp", href: "#services", layout: "art-top" },
     { title: "c3Title", text: "c3Text", img: "03.webp", href: "#process", layout: "art-bottom" },
-    { title: "c4Title", text: "c4Text", img: "04.webp", href: "https://ailider.uz/studio/", layout: "art-top" },
+    { title: "c4Title", text: "c4Text", img: "04.webp", href: "https://t.me/neoflex_manager", layout: "art-top" },
   ];
 
   function getLang() {
