@@ -5,7 +5,7 @@
   "use strict";
 
   var MARK = "data-neoflex-about";
-  var VER = "team3";
+  var VER = "team4";
   var PHOTO = "/neoflexteam/img/team/";
   var sectionEl = null;
   var lastLang = "";
@@ -58,10 +58,10 @@
     },
   };
 
-  // Asad = tall rectangle; Sardor + Shams = squares
+  // Three equal square cards
   var CARDS = [
     {
-      shape: "rect",
+      shape: "square",
       name: "asadName",
       role: "asadRole",
       text: "asadText",
@@ -104,7 +104,7 @@
       '    <img src="' +
       PHOTO +
       c.img +
-      "?v=team3" +
+      "?v=team4" +
       '" alt="" draggable="false" />' +
       "  </div>" +
       '  <div class="aw-card__copy">' +
